@@ -5,21 +5,33 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
-import { HomePage } from '../pages/home/home';
 
+import {AngularFireModule} from 'angularfire2/angularfire2';
+import { configuracion } from './firebase.config';
+
+import { AngularFireAuthModule} from 'angularfire2/auth';
+import { RegistrarPage } from '../pages/registrar/registrar';
+import { HomePage } from '../pages/home/home';
+import { RegistrarProyectoPage } from '../pages/registrar-proyecto/registrar-proyecto';
 @NgModule({
   declarations: [
     MyApp,
-    HomePage
+    RegistrarPage,
+    HomePage,
+    RegistrarProyectoPage
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    AngularFireModule.initializeApp(configuracion) ,
+    AngularFireAuthModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage
+    RegistrarPage,
+    HomePage,
+    RegistrarProyectoPage
   ],
   providers: [
     StatusBar,
